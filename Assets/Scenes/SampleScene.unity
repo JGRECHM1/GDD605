@@ -136,13 +136,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 400509264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b30f31e7da809479270cd0ccfe3100, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a695460b236ed14aac9d872698b9af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 250
-  thrust_multiplier: 2
-  yaw_multiplier: 20
-  pitch_multiplier: 20
+  throttleIncrement: 0.1
+  maxThrust: 200
+  responsiveness: 10
 --- !u!54 &400509266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,12 +150,12 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400509264}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 400
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!4 &400509268 stripped
@@ -165,6 +164,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2030166830}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &400509269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400509264}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.262848, y: 5.00795, z: 7.453579}
+  m_Center: {x: -0.042495728, y: 2.003975, z: -1.0916843}
 --- !u!1 &690804504
 GameObject:
   m_ObjectHideFlags: 0
