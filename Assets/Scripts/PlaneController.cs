@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlaneController : MonoBehaviour
 {
@@ -11,10 +12,10 @@ public class PlaneController : MonoBehaviour
     // plane responsiveness when moving
     public float responsiveness = 10f;
 
-    private float pitch;
-    private float roll;
-    private float yaw;
-    private float throttle;
+    private float Pitch;
+    private float Roll;
+    private float Yaw;
+    private float Throttle;
 
     Rigidbody rb;
 
@@ -34,13 +35,13 @@ public class PlaneController : MonoBehaviour
 
     private void handleInputs()
     {
-        roll = Input.GetAxis("Roll");
-        pitch = Input.GetAxis("Roll");
-        yaw = Input.GetAxis("Roll");
+        Roll = Input.GetAxis("Roll");
+        Pitch = Input.GetAxis("Pitch");
+        Yaw = Input.GetAxis("Yaw");
 
-        if (Input.GetKey(KeyCode.Space)) throttle += throttleIncrement;
-        else if (Input.GetKey(KeyCode.LeftControl)) throttle -= throttleIncrement;
-        throttle = Mathf.Clamp(throttle, 0f, 100f);
+        if (Input.GetKey(KeyCode.Space)) Throttle += throttleIncrement;
+        else if (Input.GetKey(KeyCode.LeftControl)) Throttle -= throttleIncrement;
+        Throttle = Mathf.Clamp(Throttle, 0f, 100f);
     }
 
 
@@ -52,10 +53,10 @@ public class PlaneController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(transform.forward * maxThrust * throttle);
-        rb.AddTorque(transform.up * yaw * responseModifier);
-        rb.AddTorque(transform.right * pitch * responseModifier);
-        rb.AddTorque(transform.forward * roll * responseModifier);
+        rb.AddForce(transform.forward * maxThrust * Throttle);
+        rb.AddTorque(transform.up * Yaw * responseModifier);
+        rb.AddTorque(transform.right * Pitch * responseModifier);
+        rb.AddTorque(transform.forward * Roll * responseModifier);
     }
 
 
