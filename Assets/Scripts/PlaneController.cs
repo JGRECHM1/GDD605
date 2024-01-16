@@ -19,8 +19,10 @@ public class PlaneController : MonoBehaviour
     private float Throttle;
 
     Rigidbody rb;
+    AudioSource engineSound;
 
     [SerializeField] TextMeshProUGUI HUD;
+    
 
     private float responseModifier
     {
@@ -34,6 +36,7 @@ public class PlaneController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        engineSound = GetComponent<AudioSource>();
     }
 
     private void handleInputs()
@@ -52,6 +55,8 @@ public class PlaneController : MonoBehaviour
     {
         handleInputs();
         UpdateHUD();
+
+        engineSound.volume = Throttle * 0.01f;
     }
 
 
