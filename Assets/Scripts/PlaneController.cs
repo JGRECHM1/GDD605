@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlaneController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlaneController : MonoBehaviour
     private float Throttle;
 
     Rigidbody rb;
+
+    [SerializeField] TextMeshProUGUI HUD;
 
     private float responseModifier
     {
@@ -48,6 +51,7 @@ public class PlaneController : MonoBehaviour
     private void Update()
     {
         handleInputs();
+        UpdateHUD();
     }
 
 
@@ -59,5 +63,9 @@ public class PlaneController : MonoBehaviour
         rb.AddTorque(transform.forward * Roll * responseModifier);
     }
 
-
+    private void UpdateHUD()
+    {
+        HUD.text = "Throttle " + Throttle.ToString("F0") + "%\n";
+        HUD.text += "Speed: " + (rb.velocity.magnitude * 3.6f).ToString("F0") + "km/h\n";
+    }
 }
