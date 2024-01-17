@@ -12,9 +12,16 @@ public class Missile : MonoBehaviour
         Destroy(gameObject, Life);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Terrain"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
