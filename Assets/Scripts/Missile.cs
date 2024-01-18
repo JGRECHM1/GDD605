@@ -14,7 +14,12 @@ public class Missile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("MilitaryAsset"))
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("CivilianBuilding"))
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
