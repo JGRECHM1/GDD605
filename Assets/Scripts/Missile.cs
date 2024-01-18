@@ -18,11 +18,13 @@ public class Missile : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+            ScoreManager.scoreCount += 100;
         }
         if (other.gameObject.CompareTag("CivilianBuilding"))
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+            ScoreManager.scoreCount -= 100;
         }
         if (other.gameObject.CompareTag("Terrain"))
         {
