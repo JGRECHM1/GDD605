@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class PlayerManager : MonoBehaviour
 {
 
     public static bool isGameOver;
     public GameObject gameOverScreen;
+
+    
 
     private void Awake()
     {
@@ -32,5 +36,6 @@ public class PlayerManager : MonoBehaviour
     public void ReplayLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ScoreManager.scoreCount = 0;
     }
 }
