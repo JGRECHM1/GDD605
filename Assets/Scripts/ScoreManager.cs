@@ -12,14 +12,10 @@ public class ScoreManager : MonoBehaviour
     public static int scoreCount;
 
 
-    void Start()
-    {
-        
-    }
-
 
     void Update()
     {
+    
         scoreText.text = "Score: " + Mathf.Round(scoreCount);
     }
 }
