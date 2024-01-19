@@ -15,6 +15,16 @@ public class PlayerCollision : MonoBehaviour
             PlayerManager.isGameOver = true;
             gameObject.SetActive(false);
         }
+        if (other.gameObject.CompareTag("MilitaryAsset"))
+        {
+            PlayerManager.isGameOver = true;
+            gameObject.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("CivilianBuilding"))
+        {
+            PlayerManager.isGameOver = true;
+            gameObject.SetActive(false);
+        }
     }
 
 
